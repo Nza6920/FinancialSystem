@@ -6,30 +6,20 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
+    // 生成 tb_pwd(密码信息) 表
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::create('tb_pwd', function (Blueprint $table) {
+            $table->increments('id');                                  // 主键自增
+            $table->string('name', 10)->comment('用户名');              // 用户名字段, 类型: VCHAR 最大10位
+            $table->string('password', 20)->comment('用户密码');        // 用户密码字段, 类型: VCHAR 最大20位
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    // 回滚 tb_pwd(密码信息) 表
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('tb_pwd');
     }
 }
