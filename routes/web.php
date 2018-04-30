@@ -1,16 +1,12 @@
 <?php
+// 用户会话
+Route::get('/login', 'SessionsController@showLogin')->name('login');
+Route::post('login', 'SessionsController@login')->name('login');
+Route::post('/logout', 'SessionsController@logout')->name('logout');
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// 密码重置
+Route::get('/reset', 'ResetPswController@showResetPsw')->name('resetPsw');
+Route::post('reset', 'ResetPswController@resetPsw')->name('resetPsw');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// 系统功能
+Route::get('/home/{user}','HomeController@show')->name('home.show');

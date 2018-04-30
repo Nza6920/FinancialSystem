@@ -12,8 +12,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('tb_pwd', function (Blueprint $table) {
             $table->increments('id');                                  // 主键自增
-            $table->string('name', 10)->comment('用户名');              // 用户名字段, 类型: VCHAR 最大10位
-            $table->string('password', 20)->comment('用户密码');        // 用户密码字段, 类型: VCHAR 最大20位
+            $table->string('name',10);                              // 用户名, 类型: VCHAR
+            $table->string('password')->comment('用户密码');        // 用户密码字段, 类型: VCHAR
+            $table->rememberToken();
         });
     }
 
