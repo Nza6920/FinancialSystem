@@ -1,17 +1,17 @@
 @if (Session::has('success'))
     <div>
-        {{ Session::get('success') }}
+        <p style="color:red;">{{ Session::get('success') }}</p>
     </div>
 @endif
 
 @if (Session::has('danger'))
     <div>
-        {{ Session::get('danger') }}
+        <p style="color:red;">{{ Session::get('danger') }}</p>
     </div>
 @endif
 
 @if (Session::has('message'))
     <div>
-        {{ Session::get('message') }}
+        <p style="color:red;">{{ Session::get('message') }}</p>
     </div>
 @endif

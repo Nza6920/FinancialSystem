@@ -10,12 +10,12 @@ class CreateRevenuesTable extends Migration
     public function up()
     {
         Schema::create('tb_inaccount', function (Blueprint $table) {
-            $table->increments('id')->comment('编号');                 // 主键自增
-            $table->decimal('money', 10, 4)->comment('收入金额');      // 收入金额, 类型: DECIMAL 最大10位 保留4位小数
-            $table->dateTime('time')->comment('收入时间');             // 收入时间, 类型: DATETIME 格式: 1000-01-01 00：00：00
-            $table->string('type', 10)->comment('收入类别');           // 收入类别, 类型: VCHAR 最大10位
-            $table->string('handler', 100)->comment('付款方');         // 付款方, 类型: VCHAR 最大100位
-            $table->string('mark', 200)->comment('备注');              // 备注   , 类型: VCHAR 最大200位
+            $table->increments('id')->comment('编号');                             // 主键自增
+            $table->decimal('money', 10, 4)->comment('收入金额');                  // 收入金额, 类型: DECIMAL 最大10位 保留4位小数
+            $table->date('time')->comment('收入时间');                             // 收入时间, 类型: DATE 格式: 2018-01-01
+            $table->string('type', 10)->comment('收入类别');                       // 收入类别, 类型: VCHAR 最大10位
+            $table->string('handler', 100)->comment('付款方');                     // 付款方, 类型: VCHAR 最大100位
+            $table->string('mark', 200)->nullable()->comment('备注');              // 备注   , 类型: VCHAR 最大200位
         });
     }
 

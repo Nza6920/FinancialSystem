@@ -11,8 +11,8 @@ class SessionsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', [
-              'except' => ['showLogin', 'login']
+        $this->middleware('guest', [
+              'except' => ['logout']
         ]);
     }
 
@@ -25,9 +25,9 @@ class SessionsController extends Controller
     // 登陆逻辑
     public function login(SessionRequest $request)
     {
-        if (Auth::attempt(['name'=>'admin','password' => $request->password])) {
+        if (Auth::attempt(['name'=>'admin','password' => $request->password,])) {
 
-            return redirect()->route('home.show',Auth::id())->with('success','欢迎回来!');
+            return redirect()->route('home.show')->with('success','欢迎回来!');
         } else {
 
             return redirect('login')->with('danger','密码错误');
