@@ -9,6 +9,7 @@ Route::get('/login', 'SessionsController@showLogin')->name('login');
 Route::post('login', 'SessionsController@login')->name('login');
 Route::post('/logout', 'SessionsController@logout')->name('logout');
 
+<<<<<<< Updated upstream
 // 密码重置
 Route::get('/reset', 'ResetPswController@showResetPsw')->name('resetPsw');
 Route::post('reset', 'ResetPswController@resetPsw')->name('resetPsw');
@@ -24,3 +25,8 @@ Route::get('/payList/{pay}', 'PayController@showPay')->name('pay.one');
 Route::get('/editPay/{pay}', 'PayController@edit')->name('pay.edit');
 Route::post('update/{pay}' ,'PayController@update')->name('pay.update');
 Route::post('destory/{pay}' ,'PayController@destory')->name('pay.destory');
+=======
+Route::get('/', function () {
+    return view('help');
+});
+>>>>>>> Stashed changes
