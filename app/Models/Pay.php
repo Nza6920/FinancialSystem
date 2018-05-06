@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pay extends Model
 {
     protected $table = 'tb_outaccount';        // 绑定数据表 tb_outaccount
+
     public $timestamps = false;
 
     protected $fillable = [

@@ -8,7 +8,7 @@
 <body>
 	<nav class="navbar navbar-inverse navbar-static-top">
 	  <div class="container" id="defaultContainer">
-	     <p class="navbar-text navbar-left"><span id="header">个人理财通</span>
+	     <a class="navbar-brand" href="{{ url('/') }}"><p><span id="header">个人理财通</span></a>
 	  </div>
 	</nav>
 	<div class="jumbotron" style="margin-bottom: 0px; padding-bottom: 300px; margin-top: -30px;">

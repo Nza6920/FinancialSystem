@@ -14,7 +14,7 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function show(User $user)
+    public function show()
     {
         $user = Auth::user();
         return view('system.home',compact('user'));

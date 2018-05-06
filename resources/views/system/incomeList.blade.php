@@ -4,6 +4,7 @@
 <div class="header">
 	<h1 style="text-align: center;">我的收入</h1>
 </div>
+@include('session._message')
 <div class="recordBody">
 <table class="table  table-hover">
 	<tr class="info">
@@ -12,32 +13,26 @@
 		<td><strong>金额</strong></td>
 		<td><strong>时间</strong></td>
 		<td><span class="glyphicon glyphicon-search"></span></td>
-	</tr>	
-	<tr>	
-		<td><strong>1</strong></td>
-		<td>餐费</td>
-		<td>15元</td>
-		<td>2017-5-6</td>
-		<td>
-			<div class="btn-group">
-			   <a href="#"><button type="button" class="btn btn-primary">编辑</button></a>
-			  <a href="#"><button type="button" class="btn btn-danger">删除</button></a>
-			</div>
-		</td>
 	</tr>
-	
+
+@foreach($incomes as $income)
 	<tr>
-		<td><strong>2</strong></td>
-		<td>车费</td>
-		<td>18元</td>
-		<td>2017-5-7</td>
+		<td><strong>{{ $income->id }}</strong></td>
+		<td>{{ $income->type }}</td>
+		<td>{{ round($income->money,2) }}元</td>
+		<td>{{ $income->time }}</td>
 		<td>
 			<div class="btn-group">
-			   <a href="#"><button type="button" class="btn btn-primary">详细</button></a>
-			  <a href="#"><button type="button" class="btn btn-danger">删除</button></a>
+				<form action="{{ route('income.destory', $income->id) }}" method="POST">
+					 {{ csrf_field() }}
+					 <a href="{{ route('income.edit', $income->id) }}"><button type="button" class="btn btn-primary">编辑</button></a>
+					 <button type="submit" class="btn btn-danger">删除</button>
+			 </form>
 			</div>
 		</td>
 	</tr>
+@endforeach
+
 </table>
 </div>
 

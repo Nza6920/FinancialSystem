@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddPayRequest;
 use App\Models\Pay;
-use App\Models\User;
-use Auth;
 
 // 支出控制器
 class PayController extends Controller
@@ -20,7 +18,7 @@ class PayController extends Controller
     // 显示新增支出页面
     public function show(Pay $pay)
     {
-        return view('system.pay',compact('pay'));
+        return view('system.pay_create_and_edit',compact('pay'));
     }
 
     // 新增支出逻辑
@@ -45,7 +43,7 @@ class PayController extends Controller
     // 列出支出清单
     public function showPayList()
     {
-        $pays = Pay::all();
+        $pays = Pay::paginate(20);
         return view('system.payList',compact('pays'));
     }
 
@@ -58,7 +56,7 @@ class PayController extends Controller
     // 显示编辑页面(隐性路由绑定)
     public function edit(Pay $pay)
     {
-        return view('system.pay',compact('pay'));
+        return view('system.pay_create_and_edit',compact('pay'));
     }
 
     // 编辑逻辑(隐性路由绑定)
@@ -72,7 +70,6 @@ class PayController extends Controller
             'address' => $request->address,
             'mark'    => $request->mark,
         ];
-
        $pay->update($data);
 
        return redirect()->route('pay.list')->with('success','更新成功!');

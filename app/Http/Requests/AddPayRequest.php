@@ -19,6 +19,7 @@ class AddPayRequest extends FormRequest
             'money'   => 'required|numeric|regex:/^[0-9]+\.?[0-9]{0,9}$/',
             'time'    => 'required|date_format:Y-m-d',
             'address' => 'required',
+            'type'    => 'required',
         ];
     }
 
@@ -31,6 +32,7 @@ class AddPayRequest extends FormRequest
             'time.required'      => '时间是必填的.',
             'time.date_format'   => '时间的格式必须是 年-月-日(2018-11-11)',
             'address.required'   => '地址是必填项.',
+            'type.required'      => '类型是必选项.'
         ];
     }
 }

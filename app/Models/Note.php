@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Note extends Model
 {
     protected $table = 'tb_flag';        // 绑定数据表 tb_flag
+
     public $timestamps = false;
+
+    protected $fillable = [
+        'flag',
+    ];
 }
