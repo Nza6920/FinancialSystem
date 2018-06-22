@@ -15,6 +15,7 @@
 	@include('session._message')
 	@if($pay->id)
 			<form method="POST" action="{{ route('pay.update',$pay->id) }}" class="form-horizontal">
+				<input type="hidden" name="_method" value="PUT">
 	@else
 			<form method="POST" action="{{ route('pay.create') }}" class="form-horizontal">
 	@endif

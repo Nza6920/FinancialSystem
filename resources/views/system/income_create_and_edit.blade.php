@@ -12,10 +12,9 @@
 		<h1 style="text-align: center;">新增收入</h1>
 	@endif
 	@include('session._errors')
-	@include('session._message')
-
 	@if($income->id)
 			<form method="POST" action="{{ route('income.update',$income->id) }}" class="form-horizontal">
+				<input type="hidden" name="_method" value="PUT">
 	@else
 			<form method="POST" action="{{ route('income.create') }}" class="form-horizontal">
 	@endif

@@ -28,6 +28,6 @@ class ResetPswController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
         Auth::logout();
-        return redirect('login')->with('message', '密码更新成功!');
+        return redirect('login')->with('success', '密码已更新,请重新登陆!');
     }
 }

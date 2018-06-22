@@ -31,7 +31,7 @@ class IncomeController extends Controller
           'mark'    => $request->mark,
       ];
 
-      // fill() 方法会将 $data 中的数据一一对应到 $pay 数据模型中
+      // fill() 方法会将 $data 中的数据一一对应到 $income 数据模型中
       $income->fill($data);
       $income->save();
 
@@ -41,8 +41,9 @@ class IncomeController extends Controller
     // 显示所有收入
     public function showIncomeList()
     {
-        $incomes = Income::paginate(20);
-        return view('system.incomeList', compact('incomes'));
+        $incomes = Income::paginate(15);
+        $i = 1;
+        return view('system.incomeList', compact('incomes','i'));
     }
 
     // 显示编辑页面
@@ -67,7 +68,7 @@ class IncomeController extends Controller
        return redirect()->route('income.list')->with('success','更新成功!');
     }
 
-    // 删除支出
+    // 删除收入
     public function destory(Income $income)
     {
         $income->delete();

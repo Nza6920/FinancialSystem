@@ -16,11 +16,12 @@
 	<table class="table  table-hover">
 		@foreach($notes as $note)
 			<tr>
-				<td>{{ $note->id }}<span class="glyphicon glyphicon-triangle-right"></span></td>
+				<td>{{ $i++ }}<span class="glyphicon glyphicon-triangle-right"></span></td>
 				<td>{{ $note->flag }}</td>
 				<td>
 				<div class="btn-group">
 					<form action="{{ route('note.destory', $note->id) }}" method="POST">
+						<input type="hidden" name="_method" value="DELETE">
 						 {{ csrf_field() }}
 						 <a href="{{ route('note.edit', $note->id) }}"><button type="button" class="btn btn-primary">编辑</button></a>
 						 <button type="submit" class="btn btn-danger">删除</button>

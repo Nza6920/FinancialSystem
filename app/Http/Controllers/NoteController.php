@@ -33,8 +33,9 @@ class NoteController extends Controller
 
     public function showNoteList()
     {
+        $i = 1;
         $notes = Note::paginate(20);
-        return view('system.noteList', compact('notes'));
+        return view('system.noteList', compact('notes','i'));
     }
 
     public function edit(Note $note)

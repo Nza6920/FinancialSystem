@@ -44,13 +44,8 @@ class PayController extends Controller
     public function showPayList()
     {
         $pays = Pay::paginate(20);
-        return view('system.payList',compact('pays'));
-    }
-
-    // 显示单个支出
-    public function showPay(Pay $pay)
-    {
-        return view('system.payOne',compact('pay'));
+        $i = 1;
+        return view('system.payList',compact('pays','i'));
     }
 
     // 显示编辑页面(隐性路由绑定)

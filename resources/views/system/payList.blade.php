@@ -16,7 +16,7 @@
 	</tr>
 	@foreach($pays as $pay)
 			<tr>
-					<td><strong>{{ $pay->id }}</strong></td>
+					<td><strong>{{ $i++ }}</strong></td>
 					<td>{{ $pay->type }}</td>
 					<td>{{ round($pay->money,2) }}元</td>
 					<td>{{ $pay->time }}</td>
@@ -24,6 +24,7 @@
 				<td>
 					<div class="btn-group">
 						 <form action="{{ route('pay.destory',$pay->id) }}" method="POST">
+							 <input type="hidden" name="_method" value="DELETE">
 		 		        {{ csrf_field() }}
 								<a href="{{ route('pay.edit',$pay->id) }}"><button type="button" class="btn btn-primary">编辑</button></a>
 								<button type="submit" class="btn btn-danger">删除</button>

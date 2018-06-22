@@ -17,6 +17,7 @@
 	@include('session._errors')
 	@if($note->id)
 			<form method="POST" action="{{ route('note.update',$note->id) }}" class="form-horizontal">
+				<input type="hidden" name="_method" value="PUT">
 	@else
 			<form method="POST" action="{{ route('note.create') }}" class="form-horizontal">
 	@endif

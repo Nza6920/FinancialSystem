@@ -14,6 +14,7 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    // 显示主页
     public function show()
     {
         $user = Auth::user();

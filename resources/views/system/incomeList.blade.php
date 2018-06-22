@@ -14,16 +14,16 @@
 		<td><strong>时间</strong></td>
 		<td><span class="glyphicon glyphicon-search"></span></td>
 	</tr>
-
 @foreach($incomes as $income)
 	<tr>
-		<td><strong>{{ $income->id }}</strong></td>
+		<td><strong>{{ $i++ }}</strong></td>
 		<td>{{ $income->type }}</td>
 		<td>{{ round($income->money,2) }}元</td>
 		<td>{{ $income->time }}</td>
 		<td>
 			<div class="btn-group">
 				<form action="{{ route('income.destory', $income->id) }}" method="POST">
+					<input type="hidden" name="_method" value="DELETE">
 					 {{ csrf_field() }}
 					 <a href="{{ route('income.edit', $income->id) }}"><button type="button" class="btn btn-primary">编辑</button></a>
 					 <button type="submit" class="btn btn-danger">删除</button>

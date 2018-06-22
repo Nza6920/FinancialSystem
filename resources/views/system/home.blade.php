@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('title','菜单')
 @section('content')
+@include('session._message')
 <div class="allSelected">
 <div class="selectedBody">
 	<a href="{{ route('pay.show') }}">
